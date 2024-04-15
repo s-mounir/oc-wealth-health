@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 import DatePicker from "react-datepicker";
 import { useState } from 'react';
+import Select from 'react-select'
+
 import "react-datepicker/dist/react-datepicker.css";
 
 import FormElement from "./FormElement";
+import { statesArray } from '../data/state';
+import { departmentArray } from '../data/department';
 
 const FormDiv = styled.div`
     display: flex;
@@ -70,11 +74,11 @@ function Form() {
                     <FormElement elementID="last-name" elementName="Last Name" elementType="text" />
                     <DateElement>
                         <label htmlFor="date-of-birth">Date of Birth</label>
-                        <DatePicker id="date-of-birth" dateFormat="MM/dd/yyyy" placeholderText="mm/dd/yyyy" selected={dateOfBirth} onChange={(date) => setDateOfBirth(date)} />
+                        <DatePicker id="date-of-birth" dateFormat="dd/MM/yyyy" placeholderText="dd/mm/yyyy" selected={dateOfBirth} onChange={(date) => setDateOfBirth(date)} />
                     </DateElement>
                     <DateElement>
                         <label htmlFor="start-date">Start Date</label>
-                        <DatePicker id="start-date" dateFormat="MM/dd/yyyy" placeholderText="mm/dd/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
+                        <DatePicker id="start-date" dateFormat="dd/MM/yyyy" placeholderText="dd/mm/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
                     </DateElement>
                 </div>
 
@@ -86,7 +90,7 @@ function Form() {
 
                     <SelectElement>
                         <label htmlFor="state">State</label>
-                        <select name="state" id="state"></select>
+                        <Select options={statesArray} />
                     </SelectElement>
 
                     <FormElement elementID="zip-code" elementName="Zip Code" elementType="number" />
@@ -94,13 +98,7 @@ function Form() {
 
                 <SelectElement className="userDep">
                     <label htmlFor="department">Department</label>
-                    <select name="department" id="department">
-                        <option>Sales</option>
-                        <option>Marketing</option>
-                        <option>Engineering</option>
-                        <option>Human Resources</option>
-                        <option>Legal</option>
-                    </select>
+                    <Select options={departmentArray} />
                 </SelectElement>
             </FormQuestions>
             <Button>Save</Button>

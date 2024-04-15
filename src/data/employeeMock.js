@@ -1,4 +1,4 @@
-export const employeeMoock = [
+export const employeeMock = [
     {
       "id": 1,
       "firstName": "Amanda",
@@ -793,7 +793,7 @@ export const employeeMoock = [
       "department": "Sales"
     },
     {
-      "id": 63,
+      "id": 62,
       "firstName": "Tunory",
       "lastName": "Juhn",
       "dateOfBirth": "02/20/1080",

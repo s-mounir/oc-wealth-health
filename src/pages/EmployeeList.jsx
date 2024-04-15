@@ -1,7 +1,8 @@
+import Table from '../components/Table';
+
 function EmployeeList() {
     return (<main id="employee-div" className="container">
-                <h1>Current Employees</h1>
-        <table id="employee-table" className="display"></table>
+        <Table />
     </main>);
 }
 export default EmployeeList
