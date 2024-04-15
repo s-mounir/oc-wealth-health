@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import DatePicker from "react-datepicker";
+import { useState } from 'react';
+import "react-datepicker/dist/react-datepicker.css";
 
 import FormElement from "./FormElement";
 
@@ -18,8 +21,17 @@ const FormQuestions = styled.div`
     font-family: "Montserrat", sans-serif;
 `
 
+const DateElement = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    width: 300px;
+`
+
 const Fieldset = styled.fieldset`
     border: 2px #5a6f07 solid;
+    border-radius: 5px;
 `
 
 const SelectElement = styled.div`
@@ -47,14 +59,23 @@ function saveEmployee(e) {
 }
 
 function Form() {
+    const [dateOfBirth, setDateOfBirth] = useState();
+    const [startDate, setStartDate] = useState();
+
     return (
         <FormDiv onSubmit={saveEmployee} id="create-employee">
             <FormQuestions>
                 <div className="userInfo">
                     <FormElement elementID="first-name" elementName="First Name" elementType="text" />
                     <FormElement elementID="last-name" elementName="Last Name" elementType="text" />
-                    <FormElement elementID="date-of-birth" elementName="Date of Birth" elementType="date" />
-                    <FormElement elementID="start-date" elementName="Start Date" elementType="date" />
+                    <DateElement>
+                        <label htmlFor="date-of-birth">Date of Birth</label>
+                        <DatePicker id="date-of-birth" dateFormat="MM/dd/yyyy" placeholderText="mm/dd/yyyy" selected={dateOfBirth} onChange={(date) => setDateOfBirth(date)} />
+                    </DateElement>
+                    <DateElement>
+                        <label htmlFor="start-date">Start Date</label>
+                        <DatePicker id="start-date" dateFormat="MM/dd/yyyy" placeholderText="mm/dd/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
+                    </DateElement>
                 </div>
 
                 <Fieldset className="address">
