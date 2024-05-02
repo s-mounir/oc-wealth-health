@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import DatePicker from "react-datepicker";
 import { useState } from 'react';
-import Select from 'react-select'
+import Select from 'react-select';
+import Modal_smouni from './Modal_smouni';
+import { useSelector, useDispatch } from 'react-redux';
 
 import "react-datepicker/dist/react-datepicker.css";
 
 import FormElement from "./FormElement";
 import { statesArray } from '../data/state';
 import { departmentArray } from '../data/department';
+import { saveEmployee } from '../utils/employeeSlice';
 
 const FormDiv = styled.div`
     display: flex;
@@ -57,52 +60,77 @@ const Button = styled.button`
     padding: 10px;
 `
 
-function saveEmployee(e) {
-    e.preventDefault();
-    console.log("coucou");
-}
-
 function Form() {
-    const [dateOfBirth, setDateOfBirth] = useState();
-    const [startDate, setStartDate] = useState();
+    const [isOpen, setIsOpen] = useState(false);
+    const [user, setUser] = useState({
+        firstName: null,
+        lastName: null,
+        dateOfBirth: null,
+        startDate: null,
+        addressStreet: null,
+        addressCity: null,
+        addressState: null,
+        addressZipCode: null,
+        department: null,
+    });
+
+    const employee = useSelector((state) => state.newEmployee)
+    const dispatch = useDispatch()
+
+    function onChange(e) {
+        setUser({ ...user, [e.target.name]: e.target.value });
+    };
+
+    function submitForm(e) {
+        e.preventDefault();
+        dispatch(saveEmployee(user));
+        setIsOpen(true);
+    }
 
     return (
-        <FormDiv onSubmit={saveEmployee} id="create-employee">
+        <FormDiv id="create-employee">
             <FormQuestions>
                 <div className="userInfo">
-                    <FormElement elementID="first-name" elementName="First Name" elementType="text" />
-                    <FormElement elementID="last-name" elementName="Last Name" elementType="text" />
+                    <FormElement elementID="firstName" elementName="First Name" elementType="text" onChange={onChange} />
+                    <FormElement elementID="lastName" elementName="Last Name" elementType="text" onChange={onChange} />
                     <DateElement>
                         <label htmlFor="date-of-birth">Date of Birth</label>
-                        <DatePicker id="date-of-birth" dateFormat="dd/MM/yyyy" placeholderText="dd/mm/yyyy" selected={dateOfBirth} onChange={(date) => setDateOfBirth(date)} />
+                        <DatePicker id="date-of-birth" dateFormat="dd/MM/yyyy" placeholderText="dd/mm/yyyy" selected={user.dateOfBirth} onChange={(e) => setUser({ ...user, dateOfBirth: Date(e) })} />
                     </DateElement>
                     <DateElement>
                         <label htmlFor="start-date">Start Date</label>
-                        <DatePicker id="start-date" dateFormat="dd/MM/yyyy" placeholderText="dd/mm/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
+                        <DatePicker id="start-date" name="startDate" dateFormat="dd/MM/yyyy" placeholderText="dd/mm/yyyy" selected={user.startDate} onChange={(e) => setUser({ ...user, startDate: Date(e) })} />
                     </DateElement>
                 </div>
 
                 <Fieldset className="address">
                     <legend>Address</legend>
 
-                    <FormElement elementID="street" elementName="Street" elementType="text" />
-                    <FormElement elementID="city" elementName="City" elementType="text" />
+                    <FormElement elementID="addressStreet" elementName="Street" elementType="text" onChange={onChange} />
+                    <FormElement elementID="addressCity" elementName="City" elementType="text" onChange={onChange} />
 
                     <SelectElement>
                         <label htmlFor="state">State</label>
-                        <Select options={statesArray} />
+                        <Select options={statesArray} onChange={(e) => setUser({ ...user, addressState: e.value })} />
                     </SelectElement>
 
-                    <FormElement elementID="zip-code" elementName="Zip Code" elementType="number" />
+                    <FormElement elementID="addressZipCode" elementName="Zip Code" elementType="number" onChange={onChange} />
                 </Fieldset>
 
                 <SelectElement className="userDep">
                     <label htmlFor="department">Department</label>
-                    <Select options={departmentArray} />
+                    <Select options={departmentArray} onChange={(e) => setUser({ ...user, department: e.value })} />
                 </SelectElement>
             </FormQuestions>
-            <Button>Save</Button>
-            {/* <div id="confirmation" class="modal">Employee Created!</div> */}
+            <Button onClick={submitForm}>Save</Button>
+            <Modal_smouni
+                isOpen={isOpen} 
+                onClose={() => setIsOpen(false)}
+                title=''
+                modalButtonText='Close'
+                modalButtonClose={() => setIsOpen(false)}>
+                <p>Employee Created!</p>
+            </Modal_smouni>
         </FormDiv>);
 }
 export default Form

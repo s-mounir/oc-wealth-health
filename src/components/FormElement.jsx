@@ -12,6 +12,7 @@ function FormElement(props) {
     const elementID = props.elementID;
     const elementName = props.elementName;
     const elementType = props.elementType;
+    const onChange = props.onChange;
 
     const type = elementType==="date"?"text":elementType;
     const placeholder = elementType==="date"?"dd/mm/yyy":elementName;
@@ -19,7 +20,7 @@ function FormElement(props) {
     return (
         <ElementDiv>
             <label htmlFor={elementID}>{elementName}</label>
-            <input type={type} id={elementID} placeholder={placeholder} />
+            <input type={type} id={elementID} name={elementID} placeholder={placeholder} onChange={onChange}/>
         </ElementDiv>
        );
 }
