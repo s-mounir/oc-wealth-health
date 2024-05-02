@@ -128,9 +128,24 @@ function Form() {
                 onClose={() => setIsOpen(false)}
                 title=''
                 modalButtonText='Close'
-                modalButtonClose={() => setIsOpen(false)}>
+                modalButtonClose={() => setIsOpen(false)}
+                modalBackgroundColor='white'
+                modalTextColor='#5a6f07'
+                modalBorderRadius='16'
+                modalBorderStyle='solid'
+                modalBorderWidth='2'
+                modalBorderColor='#5a6f07'
+                modalButtonBackgroundColor='#e7ebdc'
+                modalButtonTextColor='#5a6f07'
+                modalButtonRadius='5'
+                modalButtonBorderStyle='solid'
+                modalButtonBorderWidth='2'
+                modalButtonBorderColor='#5a6f07'
+                >
                 <p>Employee Created!</p>
             </Modal_smouni>
         </FormDiv>);
 }
 export default Form
+
+// bouton border: 2px #5a6f07 solid;
