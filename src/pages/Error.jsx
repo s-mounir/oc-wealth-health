@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import styled from 'styled-components';
-import { Modal } from 'oc-modal-smouni';
 
 const MainDiv = styled.main`
 display: flex;
@@ -29,7 +28,6 @@ function Error() {
         <h1>404</h1>
         <ErrorP>This page doesn't exist.</ErrorP>
         <NavLink to="/">Return to the home page.</NavLink>
-        <Modal />
     </MainDiv>);
 }
 export default Error

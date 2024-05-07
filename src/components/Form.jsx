@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import DatePicker from "react-datepicker";
 import { useState } from 'react';
 import Select from 'react-select';
-import Modal_smouni from './Modal_smouni';
+//import Modal_smouni from './Modal_smouni';
+import { Modal } from '@s-mounir/oc-modal-smouni';
 import { useSelector, useDispatch } from 'react-redux';
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -123,7 +124,7 @@ function Form() {
                 </SelectElement>
             </FormQuestions>
             <Button onClick={submitForm}>Save</Button>
-            <Modal_smouni
+            <Modal
                 isOpen={isOpen} 
                 onClose={() => setIsOpen(false)}
                 title=''
@@ -143,7 +144,7 @@ function Form() {
                 modalButtonBorderColor='#5a6f07'
                 >
                 <p>Employee Created!</p>
-            </Modal_smouni>
+            </Modal>
         </FormDiv>);
 }
 export default Form
