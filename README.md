@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# WealthHealth - HRnet
+## Projet 14 : Faites passer une librairie jQuery vers React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Problématique
+Dans ce projet, vous participerez à la conversion d’une application de jQuery vers React pour une grande société financière.\
+Votre mission principale sera de refondre les pages clés de l’application en remplaçant un plugin jQuery spécifique par un composant React.\
+Cela impliquera une compréhension approfondie des deux technologies et leur interaction.\
+Vous serez chargé de mesurer les performances de l'application avant et après la conversion. Cette analyse de performance vous permettra de quantifier les avantages de la migration vers React.\
+La documentation du composant converti sera une étape importante de votre travail. Cela comprendra la rédaction de documents techniques détaillant l'architecture du composant, son fonctionnement, et les raisons de sa conception.\
+Vous livrerez les résultats de votre travail avec des rapports détaillés, y compris des analyses de performance et des explications sur les choix techniques effectués pendant la conversion.
 
-## Available Scripts
+### Compétences développées
+- [x] Analyser la performance d'une application web
+- [x] Déployer une application front-end
+- [x] Refondre une application pour réduire la dette technique
+- [x] Mettre en place son environnement Front-End
+- [x] Produire de la documentation technique pour une application
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation
+- [ ] Clone the repository: `git clone https://github.com/s-mounir/oc-wealth-health.git`
+- [ ] Move to this folder: `cd oc-wealth-health`
+- [ ] Install dependencies: `npm install`
+- [ ] Launch application: `npm start`
